@@ -3,6 +3,7 @@ const bodyParser = require("body-parser")
 const app = express()
 const fs = require('fs')
 const port = process.env.PORT || 3003
+const d = new Date();
 
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser())
@@ -15,7 +16,14 @@ app.get('/', function (req, res) {
 
 app.post('/download', function(req, res) {
 	try {
-		fs.writeFileSync(__dirname + '/experiment/0317/' + req.body.name, req.body.coord.join("\n"))
+		var fs = require('fs');
+		var dir  = 'experiment/'.concat((d.getMonth()+1).toString()).concat(d.getDate().toString()).concat('/');
+
+		if (!fs.existsSync(dir)){
+		    fs.mkdirSync(dir);
+		}
+
+		fs.writeFileSync(__dirname + '/'.concat(dir) + req.body.name, req.body.coord.join("\n"))
 		
 	} catch (err) {
 		console.log(err)
