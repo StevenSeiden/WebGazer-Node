@@ -15,8 +15,7 @@ app.get('/', function (req, res) {
 
 app.post('/download', function(req, res) {
 	try {
-		data='hello'// = req.body.current_coordinates
-		fs.writeFileSync(__dirname + '/public/output.txt', data)
+		fs.writeFileSync(__dirname + '/experiment/0317/' + req.body.name, req.body.coord.join("\n"))
 		
 	} catch (err) {
 		console.log(err)
