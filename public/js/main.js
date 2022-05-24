@@ -1,6 +1,6 @@
 window.onload = async function() {
 
-    webgazer.params.showVideoPreview = true;
+    webgazer.params.showVideoPreview = false;
     //start the webgazer tracker
     await webgazer.setRegression('ridge') /* currently must set regression and tracker */
         //.setTracker('clmtrackr')
@@ -8,6 +8,7 @@ window.onload = async function() {
           //   console.log(data); /* data is an object containing an x and y key which are the x and y prediction coordinates (no bounds limiting) */
           //   console.log(clock); /* elapsed time in milliseconds since webgazer.begin() was called */
         })
+        //.setStaticVideo("vid.mp4")
         .saveDataAcrossSessions(true)
         .begin();
         webgazer.showVideoPreview(true) /* shows all video previews */
@@ -32,7 +33,9 @@ window.addEventListener('keydown', function (e) {
   if(e.key == "1" && logging == false)
   {logging = true;webgazer.logCoordinates(true,'experiment_'+Date.now());}
   else if(e.key == "2")
-  {logging = false;webgazer.logCoordinates(false,'none');};
+  {logging = false;webgazer.logCoordinates(false,'none');}
+  else if(e.key == "3")
+  {webgazer.storingPoints();};
 }, false);
 
 // Set to true if you want to save the data even if you reload the page.
