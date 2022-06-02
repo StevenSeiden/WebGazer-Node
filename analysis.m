@@ -1,10 +1,10 @@
 clear;
 % close all;
 %use matlab cell 
-data = readtable("/Users/stevenseiden/WebGazer/experiment/520/scaledpoll");
+data = readtable("/Users/stevenseiden/WebGazer/experiment/525/Iran/3");
 
 eyesX = data{1:end,1};
-eyesY = data{1:end,2};
+eyesY = -data{1:end,2};
 
 title 'Kuiper Belt Clustering';
 xlabel('x gaze area on screen');
@@ -43,13 +43,13 @@ axis equal;
 set(gca, 'XLim', pts([1 end]), 'YLim', pts([1 end]));
 
 % Plot heatmap:
-subplot(1, 2, 2);
-imagesc(pts, pts, N);
-axis equal;
-set(gca, 'XLim', pts([1 end]), 'YLim', pts([1 end]), 'YDir', 'normal');
-
-
-opts = statset('Display','final');
+% subplot(1, 2, 2);
+% imagesc(pts, pts, N);
+% axis equal;
+% set(gca, 'XLim', pts([1 end]), 'YLim', pts([1 end]), 'YDir', 'normal');
+% 
+% 
+% opts = statset('Display','final');
 
 X = [eyesX eyesY];
 % [idx,C] = kmeans(X,2,'Distance','cityblock',...
@@ -107,28 +107,28 @@ X = [eyesX eyesY];
 % end
 
 
-[idx,C] = kmeans(X,10,'Distance','cityblock',...
-        'Replicates',5,'Options',opts);
-  
-
-figure;
-plot(X(idx==1,1),X(idx==1,2),'r.','MarkerSize',12)
-hold on
-plot(X(idx==2,1),X(idx==2,2),'b.','MarkerSize',12)
-plot(X(idx==3,1),X(idx==3,2),'g.','MarkerSize',12)
-plot(X(idx==4,1),X(idx==4,2),'m.','MarkerSize',12)
-plot(X(idx==5,1),X(idx==5,2),'y.','MarkerSize',12)
-plot(X(idx==6,1),X(idx==6,2),'.','MarkerSize',12,'MarkerFaceColor',[0.8500 0.3250 0.0980])
-plot(X(idx==7,1),X(idx==7,2),'k.','MarkerSize',12)
-plot(X(idx==8,1),X(idx==8,2),'r.','MarkerSize',12)
-plot(X(idx==9,1),X(idx==9,2),'c.','MarkerSize',12)
-plot(X(idx==10,1),X(idx==10,2),'.','MarkerSize',12,'MarkerFaceColor',[0 0.4470 0.7410])
-plot(C(:,1),C(:,2),'kx',...
-     'MarkerSize',15,'LineWidth',3) 
-legend('Cluster 1','Cluster 2','Centroids',...
-       'Location','NW')
-title 'Cluster Assignments and Centroids'
-hold off
+% [idx,C] = kmeans(X,10,'Distance','cityblock',...
+%         'Replicates',5,'Options',opts);
+%   
+% 
+% figure;
+% plot(X(idx==1,1),X(idx==1,2),'r.','MarkerSize',12)
+% hold on
+% plot(X(idx==2,1),X(idx==2,2),'b.','MarkerSize',12)
+% plot(X(idx==3,1),X(idx==3,2),'g.','MarkerSize',12)
+% plot(X(idx==4,1),X(idx==4,2),'m.','MarkerSize',12)
+% plot(X(idx==5,1),X(idx==5,2),'y.','MarkerSize',12)
+% plot(X(idx==6,1),X(idx==6,2),'.','MarkerSize',12,'MarkerFaceColor',[0.8500 0.3250 0.0980])
+% plot(X(idx==7,1),X(idx==7,2),'k.','MarkerSize',12)
+% plot(X(idx==8,1),X(idx==8,2),'r.','MarkerSize',12)
+% plot(X(idx==9,1),X(idx==9,2),'c.','MarkerSize',12)
+% plot(X(idx==10,1),X(idx==10,2),'.','MarkerSize',12,'MarkerFaceColor',[0 0.4470 0.7410])
+% plot(C(:,1),C(:,2),'kx',...
+%      'MarkerSize',15,'LineWidth',3) 
+% legend('Cluster 1','Cluster 2','Centroids',...
+%        'Location','NW')
+% title 'Cluster Assignments and Centroids'
+% hold off
 
 
 %try low pass filter,smooth
