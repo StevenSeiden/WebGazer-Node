@@ -46,7 +46,7 @@ Once the tracker is setup, the algorithm may need to be calibrated. (The default
 To begin recording data, press `1`. When you are done recording data, press `2`. Data is stored in the experiment folder within the project folder (.../WebGazer-Node/experiment), and categorized by date. **This folder will need to be created by the user before data collection can start.** Data will not be stored otherwise.
 
 ## Interpreting data
-The dot on the screen of the eye tracker represents the relative position in which the user is gazing. The data that is exported from the tracker is the coordinates of this dot on the user's screen. Additionally, there is not a set sample rate, as the algorithm runs as fast as your computer can handle.
+The dot on the screen of the eye tracker represents the relative position in which the user is gazing. The data that is exported from the tracker is the coordinates of this dot on the user's screen. Additionally, there is not a set sample rate, as the algorithm runs as fast as your computer can handle. I have personally found that this algorithm reports a gaze locations about 30 times per second, which is only limited by my webcam's frame rate.
 
 ## Troubleshooting
 There are a lot of common mistakes that can occur when trying to get this eye tracker to work properly. 
