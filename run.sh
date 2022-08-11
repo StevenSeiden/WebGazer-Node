@@ -1,3 +1,3 @@
 npm install
-open http://localhost:3003/
+open -a Firefox http://localhost:3003/
 node app.js

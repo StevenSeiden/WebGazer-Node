@@ -1,3 +1,4 @@
+import time
 import math
 import sys
 from pynput.mouse import Button, Controller
@@ -15,9 +16,10 @@ while True:
     if recordData:
         # Outputting -> x gaze position, y gaze position, user's distance from camera, x cursor position, y cursor position
         output.write(str(currentMousePos[0]) + "," + str(
-                currentMousePos[1]) + "\n")
+                currentMousePos[1]) + ","+ str(time.time() * 1000) + "\n")
 
-        print(currentMousePos[0],currentMousePos[1])
+        print(currentMousePos[0],currentMousePos[1],time.time() * 1000)
+
 
     #if keyboard.is_pressed('q'):
     #    break

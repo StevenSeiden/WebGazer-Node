@@ -1,4 +1,8 @@
-data = readtable("/Users/stevenseiden/WebGazer/experiment/62/vertical/1.txt");
+data = readtable("/Users/stevenseiden/WebGazer/experiment/62/vertical/2.txt");
+
+title 'Cursor Position (Ground Truth)';
+xlabel('x position');
+ylabel('y position');
 
 figure; hold on;
 x = data{1:100:end,1};

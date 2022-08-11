@@ -1,5 +1,10 @@
 body {
     min-width:600px!important;
+    background: url("../star.jpg") no-repeat center center fixed;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
 }
 
 button {
